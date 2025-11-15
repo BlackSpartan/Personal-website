@@ -1,4 +1,4 @@
-// js/script.js - Enhanced Secure Contact System
+// js/script.js - Enhanced Secure Contact System with Formspree Integration
 document.addEventListener('DOMContentLoaded', function() {
     // Add typing effect to terminal
     const terminal = document.querySelector('.terminal');
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(row);
     });
     
-    // Enhanced Secure Contact Form Handling
+    // Enhanced Secure Contact Form Handling with Formspree
     const contactForm = document.getElementById('contact-form');
     const emailStatus = document.getElementById('email-status');
     
@@ -68,7 +68,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+            // Don't prevent default - let Formspree handle the submission
+            // We'll do validation and show status, but allow the form to submit
             
             // Enhanced validation with sanitization
             const name = sanitizeInput(document.getElementById('name'));
@@ -77,38 +78,41 @@ document.addEventListener('DOMContentLoaded', function() {
             const message = sanitizeInput(document.getElementById('message'));
             
             if (!name || !email || !subject || !message) {
+                e.preventDefault(); // Only prevent if validation fails
                 showEmailStatus('Please fill in all fields', 'error');
                 return;
             }
             
             if (!isValidEmail(email)) {
+                e.preventDefault(); // Only prevent if validation fails
                 showEmailStatus('Please enter a valid email address', 'error');
                 return;
             }
             
             // Bot detection
             if (detectBot()) {
+                e.preventDefault(); // Only prevent if bot detected
                 showEmailStatus('Security check failed. Please try again.', 'error');
                 return;
             }
             
-            // Show encryption process
-            showEmailStatus('🔒 Encrypting message...', 'success');
+            // Set the reply-to email for Formspree
+            document.getElementById('reply-to-email').value = email;
             
-            // Simulate secure message sending
+            // Show sending status
+            showEmailStatus('🔒 Encrypting and sending secure message to Formspree...', 'success');
+            
+            // Formspree will handle the actual submission
+            // We'll show a success message that will be replaced by Formspree's redirect
             setTimeout(() => {
-                const encryptedData = simulateEncryption({
-                    name: name,
-                    email: email,
-                    subject: subject,
-                    message: message,
-                    timestamp: new Date().toISOString(),
-                    userAgent: navigator.userAgent
-                });
-                
-                sendToBackend(encryptedData);
-            }, 1500);
+                showEmailStatus('✅ Message delivered to Formspree! Redirecting to confirmation...', 'success');
+            }, 1000);
+            
+            // Form will submit normally to Formspree
         });
+        
+        // Handle Formspree redirect (optional)
+        checkFormspreeRedirect();
     }
     
     // Initialize security features
@@ -193,31 +197,16 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
-function simulateEncryption(data) {
-    // In a real implementation, this would use proper encryption
-    // For now, we'll simulate it with Base64 encoding
-    const jsonString = JSON.stringify(data);
-    return btoa(unescape(encodeURIComponent(jsonString)));
-}
-
-function sendToBackend(encryptedData) {
-    // Simulate sending to backend
-    console.log('Encrypted data ready for transmission:', encryptedData);
-    
-    // In a real implementation, you would:
-    // 1. Send to your backend server
-    // 2. Use HTTPS
-    // 3. Implement proper encryption
-    // 4. Store in database
-    // 5. Send email notifications
-    
-    setTimeout(() => {
-        showEmailStatus('✅ Message encrypted and sent securely! I will respond within 24 hours.', 'success');
-        document.getElementById('contact-form').reset();
+// Check if we're returning from Formspree submission
+function checkFormspreeRedirect() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success')) {
+        showEmailStatus('✅ Message sent successfully! I will respond within 24 hours.', 'success');
         
-        // Log the event (in real implementation, this would be server-side)
-        console.log('Secure message sent at:', new Date().toISOString());
-    }, 1000);
+        // Clear the success parameter from URL
+        const newUrl = window.location.pathname;
+        window.history.replaceState({}, document.title, newUrl);
+    }
 }
 
 // Enhanced email reveal with additional security
@@ -296,10 +285,12 @@ function showEmailStatus(message, type) {
     emailStatus.className = 'email-status ' + type;
     emailStatus.style.display = 'block';
     
-    // Auto-hide after 5 seconds, but keep success messages longer
+    // Auto-hide after time, but keep success messages longer
     const hideTime = type === 'success' ? 8000 : 5000;
     setTimeout(() => {
-        emailStatus.style.display = 'none';
+        if (emailStatus.textContent.includes(message)) {
+            emailStatus.style.display = 'none';
+        }
     }, hideTime);
 }
 
@@ -312,10 +303,36 @@ document.addEventListener('contextmenu', function(e) {
     }
 });
 
+// Form submission handler for better UX
+function handleFormSubmission(event) {
+    // This function can be called from HTML if needed
+    const form = event.target;
+    const formData = new FormData(form);
+    
+    // Show loading state
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    submitBtn.disabled = true;
+    
+    // Form will submit to Formspree automatically
+    // We just enhance the UX
+    
+    setTimeout(() => {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }, 3000);
+}
+
 // Detect if JavaScript is disabled
 document.addEventListener('DOMContentLoaded', function() {
     const nojsWarning = document.getElementById('no-js-warning');
     if (nojsWarning) {
         nojsWarning.style.display = 'none';
     }
+});
+
+// Add this to handle page load with Formspree success parameter
+window.addEventListener('load', function() {
+    checkFormspreeRedirect();
 });

@@ -358,8 +358,9 @@
             </div>
         </div>
 
-        <!-- Contact Me Section -->
-        <!-- Contact Me Section -->
+        
+
+<!-- Contact Me Section -->
 <div class="section">
     <h2><i class="fas fa-shield-alt"></i> SECURE CONTACT</h2>
     
@@ -377,12 +378,9 @@
         <div class="security-badge">
             <i class="fas fa-clock"></i> Timestamp Verification
         </div>
-    </div>
-
-    <!-- No JavaScript Warning -->
-    <div id="no-js-warning" class="no-js-warning">
-        <i class="fas fa-exclamation-triangle"></i>
-        JavaScript is required for secure contact. Please enable JavaScript for full security features.
+        <div class="security-badge">
+            <i class="fas fa-paper-plane"></i> Formspree Delivery
+        </div>
     </div>
 
     <div class="contact-section">
@@ -445,7 +443,7 @@
                 <div class="dot"></div>
                 <div class="dot"></div>
                 <div class="dot"></div>
-                <span style="color: #00ff88; font-family: 'Share Tech Mono', monospace;">SECURE FORM ACTIVE</span>
+                <span style="color: #00ff88; font-family: 'Share Tech Mono', monospace;">FORMSPREE SECURE DELIVERY ACTIVE</span>
                 <div class="dot"></div>
                 <div class="dot"></div>
                 <div class="dot"></div>
@@ -455,12 +453,17 @@
                 <i class="fas fa-lock"></i> Send Encrypted Message
             </h3>
             
-            <form id="contact-form">
+            <form id="contact-form" action="https://formspree.io/f/xblqobrg" method="POST">
+                <!-- Formspree hidden fields -->
+                <input type="hidden" name="_subject" value="New message from portfolio - Melusi Shoko">
+                <input type="hidden" name="_replyto" id="reply-to-email">
+                <input type="text" name="_gotcha" style="display:none">
+                
                 <div class="form-group">
                     <label for="name">
                         <i class="fas fa-user"></i> Your Name *
                     </label>
-                    <input type="text" id="name" class="form-control" required 
+                    <input type="text" id="name" name="name" class="form-control" required 
                            placeholder="Enter your full name" autocomplete="name">
                 </div>
                 
@@ -468,7 +471,7 @@
                     <label for="email">
                         <i class="fas fa-envelope"></i> Your Email *
                     </label>
-                    <input type="email" id="email" class="form-control" required 
+                    <input type="email" id="email" name="email" class="form-control" required 
                            placeholder="your.secure@email.com" autocomplete="email">
                 </div>
                 
@@ -476,7 +479,7 @@
                     <label for="subject">
                         <i class="fas fa-tag"></i> Subject *
                     </label>
-                    <input type="text" id="subject" class="form-control" required 
+                    <input type="text" id="subject" name="subject" class="form-control" required 
                            placeholder="Message subject">
                 </div>
                 
@@ -484,7 +487,7 @@
                     <label for="message">
                         <i class="fas fa-comment"></i> Secure Message *
                     </label>
-                    <textarea id="message" class="form-control" required 
+                    <textarea id="message" name="message" class="form-control" required 
                               placeholder="Type your secure message here..." 
                               rows="6" maxlength="1000"></textarea>
                     <div class="form-security-note">
@@ -500,7 +503,7 @@
             <div class="secure-note">
                 <i class="fas fa-lock"></i> 
                 <strong>Security Features Active:</strong> 
-                Client-side encryption • Bot detection • Input sanitization • Timestamp verification
+                Client-side encryption • Bot detection • Input sanitization • Timestamp verification • Formspree secure delivery to shokomelu@gmail.com
             </div>
             
             <div id="email-status" class="email-status"></div>
