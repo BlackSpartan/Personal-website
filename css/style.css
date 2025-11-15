@@ -983,3 +983,110 @@ textarea.form-control {
         grid-template-columns: 1fr;
     }
 }
+/* Add these styles to your existing CSS */
+
+/* Honeypot field styling */
+.hp-field {
+    display: none !important;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: -9999px;
+}
+
+/* Enhanced security status messages */
+.email-status.encrypting {
+    background: rgba(0, 168, 255, 0.1);
+    border: 1px solid #00a8ff;
+    color: #00a8ff;
+}
+
+.email-status.warning {
+    background: rgba(255, 165, 0, 0.1);
+    border: 1px solid #ffa500;
+    color: #ffa500;
+}
+
+/* Security badges */
+.security-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid #00ff88;
+    border-radius: 15px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.8em;
+    color: #00ff88;
+    margin: 5px;
+}
+
+.security-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+/* Loading animation for encryption */
+.encrypting-animation {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #00ff88;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* No JavaScript warning */
+.no-js-warning {
+    background: rgba(255, 0, 128, 0.2);
+    border: 1px solid #ff0080;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    text-align: center;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+/* Enhanced form security */
+.form-security-note {
+    font-size: 0.8em;
+    color: #00a8ff;
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.secure-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.secure-indicator .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00ff88;
+    animation: pulse 2s infinite;
+}
+
+.secure-indicator .dot:nth-child(2) {
+    animation-delay: 0.5s;
+    background: #00a8ff;
+}
+
+.secure-indicator .dot:nth-child(3) {
+    animation-delay: 1s;
+    background: #ff0080;
+}
