@@ -1090,3 +1090,102 @@ textarea.form-control {
     animation-delay: 1s;
     background: #ff0080;
 }
+
+/* Mobile Responsive Fixes */
+@media (max-width: 768px) {
+    /* Fix for training grid on mobile */
+    .training-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .training-card[style*="grid-column: span 2"] {
+        grid-column: 1 !important;
+    }
+    
+    /* Fix leaderboard container on mobile */
+    .leaderboard-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+    
+    .leaderboard-card {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    /* Ensure proper spacing for leaderboard ranks */
+    .rank {
+        top: -20px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .username {
+        margin-top: 25px;
+        font-size: 1rem;
+    }
+    
+    /* Fix skill tags wrapping */
+    .skill-tags {
+        gap: 6px;
+    }
+    
+    .skill-tag {
+        padding: 4px 10px;
+        font-size: 0.75em;
+    }
+    
+    /* Improve section padding on mobile */
+    .section {
+        padding: 20px 15px;
+    }
+    
+    /* Fix header padding on mobile */
+    .header {
+        padding: 20px 15px;
+        margin-bottom: 40px;
+    }
+    
+    /* Improve badge container on mobile */
+    .badge-container {
+        gap: 6px;
+    }
+    
+    .badge {
+        padding: 5px 10px;
+        font-size: 0.7em;
+    }
+}
+
+/* Additional fixes for very small screens */
+@media (max-width: 480px) {
+    .training-card {
+        padding: 20px 15px;
+    }
+    
+    .leaderboard-card {
+        max-width: 180px;
+        padding: 15px;
+    }
+    
+    .certificates-container {
+        gap: 15px;
+    }
+    
+    .certificate-image {
+        height: 150px;
+    }
+    
+    /* Fix security features badges */
+    .security-features {
+        gap: 5px;
+    }
+    
+    .security-badge {
+        padding: 4px 8px;
+        font-size: 0.7em;
+    }
+}
