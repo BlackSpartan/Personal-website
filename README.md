@@ -5,11 +5,16 @@
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Fblackspartan.github.io%2FPersonal-website)
 ![Security](https://img.shields.io/badge/Security-Cyber--Defense-blue)
 
-> Professional portfolio showcasing expertise in Cyber Threat Intelligence, SOC Analysis, and Incident Response
+## 🎥 Portfolio Demonstration
 
-## 🚀 Live Demo
+<div align="center">
 
-[**Visit Portfolio Website**](https://blackspartan.github.io/Personal-website)
+![Cybersecurity Portfolio Demo](portfolio.gif)
+*Live demonstration of my cybersecurity portfolio featuring matrix animations, secure contact forms, and responsive design*
+
+[**🚀 Visit Live Site**](https://blackspartan.github.io/Personal-website) • [**📁 View Source**](#quick-start)
+
+</div>
 
 ## 📋 Overview
 
