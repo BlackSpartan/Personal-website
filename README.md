@@ -53,3 +53,50 @@ A responsive, security-themed portfolio website built with modern web technologi
 - Terminal and code block styling
 
 ## 📁 Project Structure
+Personal-website/
+├── index.html # Main HTML file
+├── css/
+│ └── style.css # All styles and animations
+├── js/
+│ └── script.js # Interactive functionality
+├── images/
+│ ├── certified-information-systems-security-professional-cissp.png
+│ ├── proofpoint-certified-ai-email-security-specialist-2.png
+│ └── Letsdefend.png
+├── fonts/ # Custom fonts (if any)
+└── README.md # This file
+
+
+## 🏆 Professional Certifications
+
+- **CISSP** - Certified Information Systems Security Professional
+- **Proofpoint AI Email Security Specialist**
+- **LetsDefend Cyber Defense Certificate**
+- **Advanced Threat Intelligence**
+- **Mastering Cyber Threat Intelligence for SOC Analysts**
+
+## 💼 Core Competencies
+
+### Security Management
+- Access Management • Asset Security • Risk Management
+- Security Assessment • Security Engineering
+
+### Security Operations
+- SOC Analysis • Threat Detection • Incident Response
+- Log Analysis • Threat Hunting • Security Monitoring
+
+### Technical Skills
+- Malware Analysis & Reverse Engineering
+- Scripting (Python, Bash, PowerShell)
+- OSINT Gathering & Digital Forensics
+- Email Security & Threat Intelligence
+
+## 🚀 Quick Start
+
+### Local Development
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/BlackSpartan/Personal-website.git
+   ⭐ If you find this portfolio helpful, please give it a star!
+
+Built with ❤️ by Melusi Shoko - Cyber Defense Specialist
