@@ -1189,3 +1189,16 @@ textarea.form-control {
         font-size: 0.7em;
     }
 }
+@media (max-width: 768px) {
+    .map-embed iframe {
+        height: 250px;
+    }
+    
+    .location-badges {
+        justify-content: center;
+    }
+    
+    .map-container {
+        padding: 15px;
+    }
+}
