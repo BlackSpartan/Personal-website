@@ -97,6 +97,19 @@ Personal-website/
 1. Clone the repository:
    ```bash
    git clone https://github.com/BlackSpartan/Personal-website.git
-   ⭐ If you find this portfolio helpful, please give it a star!
+
+   
+## Create the README.md file   
+
+⭐ If you find this portfolio helpful, please give it a star!
+
+Save this as `README.md` in your project root directory:
+
+```bash
+# Navigate to your project folder
+cd /c/Users/YourName/Desktop/your-website-folder
+
+# Create README.md file
+notepad README.md
 
 Built with ❤️ by Melusi Shoko - Cyber Defense Specialist
