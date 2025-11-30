@@ -1471,3 +1471,15 @@ textarea.form-control {
         padding: 20px;
     }
 }
+/* Fix for radar icon */
+.fa-radar::before {
+    content: "📡";
+    font-style: normal;
+}
+
+/* Alternative if you prefer Font Awesome */
+.fa-radar::before {
+    content: "⎓";
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+}
