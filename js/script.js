@@ -336,3 +336,133 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('load', function() {
     checkFormspreeRedirect();
 });
+
+// Badges Navigation and Filtering
+document.addEventListener('DOMContentLoaded', function() {
+    const navButtons = document.querySelectorAll('.nav-btn');
+    const badgeCards = document.querySelectorAll('.badge-card');
+    
+    // Filter badges based on category
+    function filterBadges(category) {
+        badgeCards.forEach(card => {
+            if (category === 'all' || card.dataset.category === category) {
+                card.style.display = 'block';
+                card.classList.remove('hidden');
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                }, 50);
+            } else {
+                card.classList.add('hidden');
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
+        });
+    }
+    
+    // Add click events to navigation buttons
+    navButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            navButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Filter badges
+            const filter = this.dataset.filter;
+            filterBadges(filter);
+            
+            // Add cyber security sound effect (optional)
+            playCyberSound();
+        });
+    });
+    
+    // Cyber sound effect for navigation
+    function playCyberSound() {
+        // This is a visual effect since we can't play audio without user interaction
+        const cyberEffect = document.createElement('div');
+        cyberEffect.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 20%, rgba(0, 255, 136, 0.1) 70%);
+            pointer-events: none;
+            z-index: 1000;
+            animation: cyberPulse 0.3s ease-out;
+        `;
+        
+        document.body.appendChild(cyberEffect);
+        
+        setTimeout(() => {
+            cyberEffect.remove();
+        }, 300);
+    }
+    
+    // Add CSS for cyber pulse animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes cyberPulse {
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 0.5; transform: scale(1.1); }
+            100% { opacity: 0; transform: scale(1.3); }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Initialize with all badges visible
+    filterBadges('all');
+    
+    // Add hover effects for badges
+    badgeCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.zIndex = '10';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.zIndex = '1';
+        });
+    });
+    
+    // Add smooth scrolling to badges section
+    const badgesSection = document.querySelector('.badges-section');
+    if (badgesSection) {
+        const navLinks = document.querySelectorAll('a[href="#badges"]');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                badgesSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+    }
+});
+
+// Enhanced badge animations
+function enhanceBadgeAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.badge-card').forEach(card => {
+        observer.observe(card);
+    });
+}
+
+// Initialize when page loads
+window.addEventListener('load', enhanceBadgeAnimations);
