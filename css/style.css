@@ -1483,3 +1483,68 @@ textarea.form-control {
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
 }
+/* Fixed Navigation */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 15, 41, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid #00ff88;
+    z-index: 1000;
+    padding: 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Orbitron', monospace;
+    color: #00ff88;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: #00a8ff;
+    text-decoration: none;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #00ff88;
+    background: rgba(0, 255, 136, 0.1);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+}
+
+.nav-toggle {
+    display: none;
+    color: #00ff88;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+/* Adjust container for fixed nav */
+.container {
+    margin-top: 80px;
+}
