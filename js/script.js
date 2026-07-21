@@ -98,16 +98,16 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Set the reply-to email for Formspree
             document.getElementById('reply-to-email').value = email;
-            
+
             // Show sending status
-            showEmailStatus('🔒 Encrypting and sending secure message to Formspree...', 'success');
-            
+            showEmailStatus('Sending message...', 'success');
+
             // Formspree will handle the actual submission
             // We'll show a success message that will be replaced by Formspree's redirect
             setTimeout(() => {
-                showEmailStatus('✅ Message delivered to Formspree! Redirecting to confirmation...', 'success');
+                showEmailStatus('Message sent. Redirecting...', 'success');
             }, 1000);
-            
+
             // Form will submit normally to Formspree
         });
         
@@ -201,55 +201,45 @@ function isValidEmail(email) {
 function checkFormspreeRedirect() {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('success')) {
-        showEmailStatus('✅ Message sent successfully! I will respond within 24 hours.', 'success');
-        
+        showEmailStatus('Message sent successfully! I will respond within 24 hours.', 'success');
+
         // Clear the success parameter from URL
         const newUrl = window.location.pathname;
         window.history.replaceState({}, document.title, newUrl);
     }
 }
 
-// Enhanced email reveal with additional security
+// Reveal the email address on demand, keeping it out of the static HTML
 function revealEmail() {
     const emailElement = document.getElementById('secure-email');
     const button = event.target;
-    
+
     // Add bot detection
     if (detectBot()) {
-        emailElement.innerHTML = '<span style="color: #ff0080;">Security check failed</span>';
+        emailElement.innerHTML = '<span style="color: #e58080;">Security check failed</span>';
         return;
     }
-    
+
     // Obfuscated email assembly with multiple layers
     const parts = [
         'shokom', 'elu', '@', 'gm', 'ail', '.', 'com'
     ];
-    
+
     // Shuffle and assemble
     const email = parts[0] + parts[1] + parts[2] + parts[3] + parts[4] + parts[5] + parts[6];
-    
-    // Create secure mailto link
+
+    // Create mailto link
     const mailtoLink = `mailto:${email}?subject=Contact%20from%20Portfolio&body=Hello%20Melusi,%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20get%20in%20touch.`;
-    
+
     emailElement.innerHTML = `
-        <a href="${mailtoLink}" style="color: #00ff88; text-decoration: none;" 
-           onclick="trackEmailClick()" 
-           oncontextmenu="return false;">
+        <a href="${mailtoLink}" style="color: var(--accent); text-decoration: none;">
            <i class="fas fa-envelope"></i> ${email}
         </a>
-        <div style="font-size: 0.8em; color: #00a8ff; margin-top: 5px;">
+        <div style="font-size: 0.8em; color: var(--text-dim); margin-top: 5px;">
             <i class="fas fa-shield-alt"></i> Protected against email harvesting
         </div>
     `;
     button.style.display = 'none';
-    
-    // Log the reveal event
-    console.log('Email revealed by user at:', new Date().toISOString());
-}
-
-function trackEmailClick() {
-    // In real implementation, track this event
-    console.log('Email link clicked at:', new Date().toISOString());
 }
 
 function initEmailObfuscation() {
@@ -293,15 +283,6 @@ function showEmailStatus(message, type) {
         }
     }, hideTime);
 }
-
-// Additional security: Prevent right-click on sensitive elements
-document.addEventListener('contextmenu', function(e) {
-    if (e.target.closest('.secure-email-form') || e.target.closest('#secure-email')) {
-        e.preventDefault();
-        showEmailStatus('Right-click disabled for security', 'warning');
-        return false;
-    }
-});
 
 // Form submission handler for better UX
 function handleFormSubmission(event) {
@@ -373,46 +354,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Filter badges
             const filter = this.dataset.filter;
             filterBadges(filter);
-            
-            // Add cyber security sound effect (optional)
-            playCyberSound();
         });
     });
-    
-    // Cyber sound effect for navigation
-    function playCyberSound() {
-        // This is a visual effect since we can't play audio without user interaction
-        const cyberEffect = document.createElement('div');
-        cyberEffect.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, transparent 20%, rgba(0, 255, 136, 0.1) 70%);
-            pointer-events: none;
-            z-index: 1000;
-            animation: cyberPulse 0.3s ease-out;
-        `;
-        
-        document.body.appendChild(cyberEffect);
-        
-        setTimeout(() => {
-            cyberEffect.remove();
-        }, 300);
-    }
-    
-    // Add CSS for cyber pulse animation
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes cyberPulse {
-            0% { opacity: 0; transform: scale(0.8); }
-            50% { opacity: 0.5; transform: scale(1.1); }
-            100% { opacity: 0; transform: scale(1.3); }
-        }
-    `;
-    document.head.appendChild(style);
-    
+
     // Initialize with all badges visible
     filterBadges('all');
     
