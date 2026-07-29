@@ -483,6 +483,53 @@ strong {
     margin-top: 4px;
 }
 
+/* Alert Type Bar Chart */
+.bar-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.bar-row {
+    display: grid;
+    grid-template-columns: 150px 1fr 34px;
+    align-items: center;
+    gap: 12px;
+}
+
+.bar-label {
+    font-family: var(--font-sans);
+    font-size: 0.85em;
+    color: var(--text-muted);
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bar-track {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    height: 10px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    min-width: 4px;
+    background: var(--accent);
+    border-radius: 0 4px 4px 0;
+}
+
+.bar-value {
+    font-family: var(--font-mono);
+    font-size: 0.8em;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+}
+
 /* Skill Grid */
 .skill-grid {
     display: grid;
@@ -869,6 +916,15 @@ textarea.form-control {
 
     .leaderboard-card {
         width: 140px;
+    }
+
+    .bar-row {
+        grid-template-columns: 110px 1fr 30px;
+        gap: 8px;
+    }
+
+    .bar-label {
+        font-size: 0.78em;
     }
 
     .skill-grid {
