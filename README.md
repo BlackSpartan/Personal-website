@@ -40,9 +40,8 @@ Personal portfolio and CV site for Melusi Shoko, CISSP-certified cybersecurity s
 
 ```
 Personal-website/
-├── index.html          # Main portfolio page
-├── my_cv.html           # CV page
-├── css/                 # Stylesheets (main.css holds the theme)
+├── index.html           # Main portfolio page
+├── css/                 # Stylesheets (style.css holds the theme)
 ├── js/                  # Site scripts
 ├── images/              # Certification badges, photos, backgrounds
 ├── fonts/               # Poppins & Lora font families
