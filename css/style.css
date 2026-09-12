@@ -886,6 +886,9 @@ textarea.form-control {
 
     .stories-table {
         font-size: 0.9em;
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .stories-table th, .stories-table td {
@@ -1366,11 +1369,13 @@ textarea.form-control {
     .nav-links {
         flex: 1;
         gap: 10px;
-        margin-left: 14px;
-        padding-inline-end: 14px;
+        margin-left: 8px;
+        padding-inline-end: 44px;
         overflow-x: auto;
         scrollbar-width: none;
         -webkit-overflow-scrolling: touch;
+        -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 44px), transparent);
+        mask-image: linear-gradient(to right, #000 calc(100% - 44px), transparent);
     }
 
     .nav-links::-webkit-scrollbar {
@@ -1383,6 +1388,6 @@ textarea.form-control {
     }
 
     .nav-container {
-        padding: 8px 16px;
+        padding: 8px 0 8px 12px;
     }
 }
