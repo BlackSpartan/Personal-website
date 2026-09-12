@@ -137,20 +137,19 @@ h1 {
 }
 
 .hero-stats {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     margin: 6px 0 26px;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
 }
 
 .hero-stat {
-    flex: 1 1 120px;
     padding: 14px 16px;
     border-left: 1px solid var(--border);
 }
 
-.hero-stat:first-child {
+.hero-stat:nth-child(4n + 1) {
     border-left: none;
     padding-left: 0;
 }
@@ -835,9 +834,21 @@ textarea.form-control {
         font-size: 0.88em;
     }
 
+    .hero-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
     .hero-stat {
-        flex-basis: 45%;
         padding: 12px 14px;
+    }
+
+    .hero-stat:nth-child(3) {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .hero-stat:nth-child(n + 3) {
+        border-top: 1px solid var(--border);
     }
 
     .hero-stat .figure {
@@ -1300,6 +1311,14 @@ textarea.form-control {
     gap: 6px;
 }
 
+.nav-logo {
+    flex-shrink: 0;
+}
+
+.nav-link {
+    white-space: nowrap;
+}
+
 .nav-link {
     color: var(--text-muted);
     text-decoration: none;
@@ -1342,11 +1361,21 @@ textarea.form-control {
     .nav-cta {
         display: none;
     }
-}
 
-.nav-toggle {
-    display: none;
-    color: var(--text);
-    font-size: 1.2em;
-    cursor: pointer;
+    /* 9 links will not fit a phone width; scroll them instead of clipping */
+    .nav-links {
+        flex: 1;
+        margin-left: 12px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-link {
+        padding: 8px 10px;
+    }
 }
