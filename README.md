@@ -27,6 +27,7 @@ Personal portfolio site for Melusi Shoko, CISSP-certified cybersecurity speciali
 - Core Competencies & Technical Skills
 - Credentials (CISSP, Proofpoint AI Security, LetsDefend, SOC Radar, CCEP)
 - Hands-on Training & Achievements
+- Home SOC Lab (pfSense, Active Directory, distributed Wazuh, Kali)
 - Security Research & Writing
 - Education
 - Contact

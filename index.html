@@ -28,6 +28,7 @@
             <a href="#skills" class="nav-link">Skills</a>
             <a href="#credentials" class="nav-link">Credentials</a>
             <a href="#training" class="nav-link">Training</a>
+            <a href="#lab" class="nav-link">Lab</a>
             <a href="#content" class="nav-link">Articles</a>
             <a href="#education" class="nav-link">Education</a>
             <a href="#contact" class="nav-link">Contact</a>
@@ -633,6 +634,65 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Home SOC Lab Section -->
+        <div class="section" id="lab">
+            <h2><i class="fas fa-network-wired"></i> HOME SOC LAB</h2>
+            <p class="summary-text">A segmented lab built in VirtualBox for detection and response work: an Active Directory domain monitored by a distributed Wazuh SIEM, isolated behind a pfSense firewall.</p>
+
+            <div class="lab-topology">
+                <div class="lab-node lab-node--edge">
+                    <span class="lab-role">Upstream</span>
+                    <strong class="lab-name">Internet</strong>
+                    <span class="lab-meta">via VirtualBox NAT</span>
+                </div>
+                <div class="lab-link" aria-hidden="true"></div>
+                <div class="lab-node lab-node--edge">
+                    <span class="lab-role">Firewall &amp; gateway</span>
+                    <strong class="lab-name">pfSense</strong>
+                    <span class="lab-meta">FreeBSD · 2 GB · 1 vCPU</span>
+                </div>
+                <div class="lab-link" aria-hidden="true"></div>
+                <div class="lab-segment">
+                    <span class="lab-segment-label">LAB_LAN · isolated network</span>
+                    <div class="lab-hosts">
+                        <div class="lab-node">
+                            <span class="lab-role">Domain controller</span>
+                            <strong class="lab-name">Windows Server 2019 Core</strong>
+                            <span class="lab-meta">AD DS · 4 GB · 2 vCPU · Wazuh agent</span>
+                        </div>
+                        <div class="lab-node">
+                            <span class="lab-role">Domain-joined endpoint</span>
+                            <strong class="lab-name">Windows 11</strong>
+                            <span class="lab-meta">4.6 GB · 1 vCPU · Wazuh agent</span>
+                        </div>
+                        <div class="lab-node">
+                            <span class="lab-role">SIEM manager</span>
+                            <strong class="lab-name">Wazuh Manager</strong>
+                            <span class="lab-meta">Ubuntu · 4 GB · 2 vCPU</span>
+                        </div>
+                        <div class="lab-node">
+                            <span class="lab-role">SIEM indexer</span>
+                            <strong class="lab-name">Wazuh Indexer</strong>
+                            <span class="lab-meta">Ubuntu · 4 GB · 2 vCPU</span>
+                        </div>
+                        <div class="lab-node lab-node--attacker">
+                            <span class="lab-role">Attacker host</span>
+                            <strong class="lab-name">Kali Linux 2025.3</strong>
+                            <span class="lab-meta">Offensive testing · 2 GB · 2 vCPU</span>
+                        </div>
+                    </div>
+                    <p class="lab-flow">Telemetry: Windows&nbsp;hosts → Wazuh&nbsp;Manager → Wazuh&nbsp;Indexer</p>
+                </div>
+            </div>
+
+            <ul class="lab-notes">
+                <li>Lab hosts have no direct route out; all traffic leaves through pfSense.</li>
+                <li>Wazuh runs distributed, with the manager and indexer on separate hosts.</li>
+                <li>Both Windows machines are joined to the Active Directory domain and report to Wazuh through agents.</li>
+                <li>A Kali Linux host sits on the same segment for offensive testing against the domain.</li>
+            </ul>
         </div>
 
         <!-- Content Creation Section -->

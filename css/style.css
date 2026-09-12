@@ -535,6 +535,128 @@ strong {
     color: var(--accent);
 }
 
+/* Home SOC Lab */
+.lab-topology {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 22px 0 8px;
+}
+
+.lab-node {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+    padding: 12px 16px;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+}
+
+.lab-node--edge {
+    width: min(100%, 280px);
+    text-align: center;
+}
+
+.lab-role {
+    font-family: var(--font-mono);
+    font-size: 0.68em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+}
+
+.lab-name {
+    font-family: var(--font-sans);
+    font-size: 1.05em;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.lab-meta {
+    font-family: var(--font-mono);
+    font-size: 0.74em;
+    color: var(--text-dim);
+}
+
+/* the adversary spans the row, set apart from the defended hosts */
+.lab-node--attacker {
+    grid-column: 1 / -1;
+}
+
+.lab-node--attacker .lab-role {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.lab-link {
+    width: 1px;
+    height: 22px;
+    background: var(--border-hover);
+}
+
+/* dashed boundary marks the isolated internal network */
+.lab-segment {
+    position: relative;
+    width: 100%;
+    padding: 26px 18px 16px;
+    border: 1px dashed var(--border-hover);
+    border-radius: 2px;
+}
+
+.lab-segment-label {
+    position: absolute;
+    top: -9px;
+    left: 14px;
+    padding: 0 8px;
+    background: var(--surface);
+    font-family: var(--font-mono);
+    font-size: 0.7em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.lab-hosts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.lab-flow {
+    margin-top: 14px;
+    font-family: var(--font-mono);
+    font-size: 0.78em;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.lab-notes {
+    margin: 18px 0 0 20px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.lab-notes li {
+    margin-bottom: 6px;
+}
+
+.lab-notes li::marker {
+    color: var(--accent);
+}
+
+@media (max-width: 600px) {
+    .lab-hosts {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .lab-segment {
+        padding: 24px 12px 14px;
+    }
+}
+
 /* Medium Stories Table */
 .stories-table {
     width: 100%;
