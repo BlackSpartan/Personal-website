@@ -4,11 +4,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/BlackSpartan/Personal-website)
 ![Website](https://img.shields.io/website?url=https%3A%2F%2Fblackspartan.github.io%2FPersonal-website)
 
-## 🎥 Preview
-
 <div align="center">
-
-![Portfolio Demo](portfolio.gif)
 
 [**🚀 Visit Live Site**](https://blackspartan.github.io/Personal-website)
 
@@ -16,12 +12,12 @@
 
 ## 📋 Overview
 
-Personal portfolio and CV site for Melusi Shoko, CISSP-certified cybersecurity specialist. Built as a static site with a professional dark theme, showcasing experience, certifications, security research, and hands-on training.
+Personal portfolio site for Melusi Shoko, CISSP-certified cybersecurity specialist. Built as a static site with a paper-toned, case-file inspired theme, showcasing experience, certifications, security research, and hands-on training.
 
 ## 🛠️ Tech Stack
 
 - **Frontend**: HTML5, CSS3, vanilla JavaScript
-- **Fonts**: Poppins, Lora
+- **Fonts**: Source Serif 4, Courier Prime (Google Fonts)
 - **Icons**: Font Awesome
 - **Forms**: Formspree.io for contact form handling
 
@@ -29,8 +25,7 @@ Personal portfolio and CV site for Melusi Shoko, CISSP-certified cybersecurity s
 
 - Professional Summary & Experience
 - Core Competencies & Technical Skills
-- Professional Certifications (CISSP, Proofpoint AI Security, LetsDefend, CompTIA Security+)
-- Security Badges & Credentials
+- Credentials (CISSP, Proofpoint AI Security, LetsDefend, SOC Radar, CCEP)
 - Hands-on Training & Achievements
 - Security Research & Writing
 - Education
@@ -44,7 +39,7 @@ Personal-website/
 ├── css/                 # Stylesheets (style.css holds the theme)
 ├── js/                  # Site scripts
 ├── images/              # Certification badges, photos, backgrounds
-├── fonts/               # Poppins & Lora font families
+├── fonts/               # Legacy Poppins & Lora files (unused by the live page)
 └── README.md
 ```
 
