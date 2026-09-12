@@ -201,6 +201,7 @@ h1 {
     height: 100%;
     object-fit: cover;
     object-position: center 20%;
+    filter: grayscale(90%) contrast(1.1) brightness(0.9);
 }
 
 @media (max-width: 900px) {
