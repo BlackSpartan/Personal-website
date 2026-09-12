@@ -1,12 +1,24 @@
 {
-  "name": "Melusi Shoko - Cyber Defense Specialist",
+  "name": "Melusi Shoko, CISSP - Cybersecurity Specialist",
   "short_name": "Melusi Shoko",
-  "description": "Cybersecurity portfolio featuring matrix animations, secure contact forms, and professional certification displays",
+  "description": "Cybersecurity portfolio: SOC investigations, threat intelligence, published security research, and verifiable certifications.",
   "start_url": "/Personal-website/",
   "display": "standalone",
-  "background_color": "#0a0a0a",
-  "theme_color": "#00ff88",
+  "background_color": "#EAE2CB",
+  "theme_color": "#8A2E22",
   "orientation": "portrait-primary",
   "scope": "/Personal-website/",
-  "categories": ["portfolio", "security", "technology"]
+  "categories": ["portfolio", "security", "technology"],
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
 }
