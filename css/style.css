@@ -1365,7 +1365,9 @@ textarea.form-control {
     /* 9 links will not fit a phone width; scroll them instead of clipping */
     .nav-links {
         flex: 1;
-        margin-left: 12px;
+        gap: 10px;
+        margin-left: 14px;
+        padding-inline-end: 14px;
         overflow-x: auto;
         scrollbar-width: none;
         -webkit-overflow-scrolling: touch;
@@ -1376,6 +1378,11 @@ textarea.form-control {
     }
 
     .nav-link {
-        padding: 8px 10px;
+        padding: 11px 14px;
+        font-size: 0.82em;
+    }
+
+    .nav-container {
+        padding: 8px 16px;
     }
 }
